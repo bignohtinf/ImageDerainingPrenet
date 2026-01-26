@@ -11,9 +11,6 @@ sys.path.append(ROOT)
 
 from models.PReNet import PReNet
 
-# -------------------------
-# Model loading
-# -------------------------
 def load_model(weight_path, device):
     model = PReNet(recurrent_iter=6, use_GPU=(device=="cuda"))
     model.load_state_dict(torch.load(weight_path, map_location=device))
@@ -21,9 +18,6 @@ def load_model(weight_path, device):
     model.eval()
     return model
 
-# -------------------------
-# Pre / Post process
-# -------------------------
 def preprocess(img):
     img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
     img = img.astype(np.float32) / 255.0
@@ -36,14 +30,12 @@ def postprocess(tensor):
     img = (img * 255).astype(np.uint8)
     return cv2.cvtColor(img, cv2.COLOR_RGB2BGR)
 
-# -------------------------
-# Derain single image
-# -------------------------
+
 @torch.no_grad()
 def derain_image(model, img_path, save_path):
     img = cv2.imread(img_path)
     if img is None:
-        print(f"❌ Cannot read {img_path}")
+        print(f"Cannot read {img_path}")
         return
 
     inp = preprocess(img).to(next(model.parameters()).device)
@@ -72,11 +64,9 @@ def derain_folder(model, input_dir, output_dir):
         out_path = os.path.join(output_dir, name)
 
         derain_image(model, inp_path, out_path)
-        print(f"✅ {name}")
+        print(f"{name}")
 
-# -------------------------
-# Main
-# -------------------------
+
 if __name__ == "__main__":
     device = "cuda" if torch.cuda.is_available() else "cpu"
     model = load_model("inference/net_best.pth", device)
