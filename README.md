@@ -215,6 +215,22 @@ python inference/PreNet_1400.py --input <image_path> --model <model_path> --outp
 python inference/PreNet_1400.py --input_dir <directory> --model <model_path> --output_dir <output_directory>
 ```
 
+<p align="center">
+  <img src="inference/test/norain-1.png" width="180"/>
+  <img src="inference/test/norain-2.png" width="180"/>
+  <img src="inference/test/norain-3.png" width="180"/>
+</p>
+
+<p align="center"><b>Đầu vào</b></p>
+
+<p align="center">
+  <img src="inference/output/norain-1.png" width="180"/>
+  <img src="inference/output/norain-2.png" width="180"/>
+  <img src="inference/output/norain-3.png" width="180"/>
+</p>
+
+<p align="center"><b>Đầu ra</b></p>
+
 
 ## Results
 
@@ -223,6 +239,9 @@ Results will be documented here after training completion. Metrics include:
 - SSIM
 - Visual quality comparison
 - Inference time
+
+![PSNR](output/comparisons/rain100h/psnr_comparison.png)
+![SSIM](output/comparisons/rain100h/ssim_comparison.png)
 
 ## Architecture Details
 
