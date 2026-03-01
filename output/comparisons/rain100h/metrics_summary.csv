@@ -1,0 +1,4 @@
+Model,Epoch,Loss,PSNR,SSIM
+prenet_cbam_no_aug_training_history,100,-0.907442,29.0252,0.899802
+prenet_no_aug_training_history,100,-0.90195,28.9827,0.89892
+prenet_aug_training_history,100,-0.901053,28.8864,0.898025

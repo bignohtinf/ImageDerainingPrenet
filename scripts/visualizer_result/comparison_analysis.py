@@ -87,8 +87,8 @@ class ComparisonAnalyzer:
                     'Filename': filename,
                     'Epoch': epoch_data.get('epoch', np.nan),
                     'Loss': epoch_data.get('loss', np.nan),
-                    'PSNR': epoch_data.get('psnr', np.nan),
-                    'SSIM': epoch_data.get('ssim', np.nan),
+                    'PSNR': epoch_data.get('test_psnr', np.nan),
+                    'SSIM': epoch_data.get('test_ssim', np.nan),
                     'LR': epoch_data.get('lr', np.nan),
                 }
                 records.append(record)

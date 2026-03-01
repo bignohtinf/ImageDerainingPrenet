@@ -69,7 +69,7 @@ def derain_folder(model, input_dir, output_dir):
 
 if __name__ == "__main__":
     device = "cuda" if torch.cuda.is_available() else "cpu"
-    model = load_model("inference/net_best.pth", device)
+    model = load_model("output/checkpoints/prenet_100H.pth", device)
 
     derain_folder(
         model,
